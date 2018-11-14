@@ -6,9 +6,9 @@ variable "folder_name" {
   
 }
 
-
-variable "children" {
+variable "childlist" {
   type = "list"
+
 }
 
 

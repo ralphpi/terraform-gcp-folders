@@ -5,11 +5,12 @@ resource "google_folder" "parent_folder_creation" {
   parent = "folders/${var.parent_folder_id}"
 }
 
-#Second Level AKA Child
+#Second Level AKA Child  
+# Destroy Limitations: You must Destroy in order from right to left of childlist Array
 resource "google_folder" "child_folder_creation" {
-  count = "${length(var.children)}"
-  display_name = "${element(var.children, count.index)}"
-  #display_name = "${lookup(var.children, var.parent[count.index])}"
+  count= "${length(var.childlist)}"
+  #display_name = "${element(var.children, count.index)}"
+  display_name = "${lookup(var.childlist[count.index], "child")}"
   parent = "${element(google_folder.parent_folder_creation.*.id, count.index)}"
   
 }
