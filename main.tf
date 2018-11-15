@@ -10,7 +10,7 @@ resource "google_folder" "parent_folder_creation" {
   count = "${length(var.folder_name)}"
   display_name = "${element(var.folder_name, count.index)}"
   parent = "${var.parent_folder}"
-  depends_on = ["google_active_folder.new_active_parent"]
+  depends_on = ["data.google_active_folder.new_active_parent"]
 }
 
 #Second Level AKA Child  
