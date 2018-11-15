@@ -7,7 +7,7 @@ resource "google_folder" "parent_folder_creation" {
 
 #Second Level AKA Child  
 
-resource "google_folder" "new_active_parent" {
+resource "google_active_folder" "new_active_parent" {
   display_name = "${element(var.folder_name, 0)}"
   parent = "folders/${var.parent_folder_id}"
   
