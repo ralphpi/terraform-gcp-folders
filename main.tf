@@ -1,7 +1,7 @@
 # Top-level folder under an organization.
 resource "google_folder" "parent_folder_creation" {
-  #count = "${length(var.folder_name)}"
-  display_name = "${var.folder_name}"
+  count = "${length(var.folder_name)}"
+  display_name = "${element(var.folder_name, count.index)}"
   parent = "folders/${var.parent_folder_id}"
 }
 
