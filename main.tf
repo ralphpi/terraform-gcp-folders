@@ -10,7 +10,7 @@ resource "google_folder" "parent_folder_creation" {
 data "google_active_folder" "new_active_parent" {
   display_name = "${element(var.folder_name, 0)}"
   parent = "folders/${var.parent_folder_id}"
-  depend_on = "google_folder.child_folder_creation[0]"
+  depend_on = "google_folder.parent_folder_creation[0]"
   
 }
 
