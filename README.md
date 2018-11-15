@@ -20,8 +20,7 @@ module "terraform-gcp-folders-non-prod" {
 - Destroy
     - Folders and child folders must be deleted in specific order (From right to Left). 
     - Folders cannot be destroy so long as it does not contain sub-folders or projects.
-- Updates
-    - Folder names cannot be updates 
+
 
 ### Variables
 Following variables are the most important to control module's behavior:
