@@ -21,12 +21,14 @@ module "terraform-gcp-folders-non-prod" {
 Following variables are the most important to control module's behavior:
 
 - parent_folder_id
-
-    This variable dictates which pre-existing folder the New Folder will live. This var cannot be null,
+    - Description: This variable dictates which pre-existing folder\s the New Folder will live. This var cannot be null.
+    - Type: String
+        
 
 - folder_name
-
-    This var defines your new folder name.
+    - Description : This var defines your new folder name.
+    - Type: List
+    
 
 - childlist
 
