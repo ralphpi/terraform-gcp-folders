@@ -18,7 +18,7 @@ resource "google_folder" "child_folder_creation" {
   count= "${length(var.childlist)}"
   #display_name = "${element(var.children, count.index)}"
   display_name = "${lookup(var.childlist[count.index], "child")}"
-  parent = "${google_active_folder.new_active_parent.id}"
+  parent = "${google_active_folder.new_active_parent.name}"
   #parent = "${element(google_folder.parent_folder_creation.*.id, count.index)}"
   
 }
