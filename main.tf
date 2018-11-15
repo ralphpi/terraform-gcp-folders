@@ -6,7 +6,6 @@ data "google_active_folder" "new_active_parent" {
 }
 
 resource "google_folder" "parent_folder_creation" {
-  count = "1"
   display_name = "${var.folder_name}"
   parent = "${data.google_active_folder.new_active_parent.name}"
 }
