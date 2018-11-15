@@ -17,6 +17,12 @@ module "terraform-gcp-folders-non-prod" {
 
 ## Limitations
 
+- Destroy
+    - Folders and child folders must be deleted in specific order (From right to Left). 
+    - Folders cannot be destroy so long as it does not contain sub-folders or projects.
+- Updates
+    - Folder names cannot be updates 
+
 ### Variables
 Following variables are the most important to control module's behavior:
 
@@ -34,11 +40,10 @@ Following variables are the most important to control module's behavior:
 
   This list of maps var allows you to create multiple child folders under your new folder. This var can be an emtpy list. 
 
-  - `service_accounts`
-  - `pubsub_topics`
-  - `pubsub_subscriptions`
+    - Description : This var defines your new child\ren folder\s name\s.
+    - Type: List
 
-[^]: (autogen_docs_start)
+
 
 #### Additive and Authoritative Modes
 
