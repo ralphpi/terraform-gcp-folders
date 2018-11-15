@@ -16,17 +16,3 @@ resource "google_folder" "parent_folder_creation" {
 #Second Level AKA Child  
 
 
-
-# Destroy Limitations: You must Destroy in order from right to left of childlist Array
-resource "google_folder" "child_folder_creation" {
-  count= "${length(var.childlist)}"
-  #display_name = "${element(var.children, count.index)}"
-  display_name = "${lookup(var.childlist[count.index], "child")}"
-  parent = "${google_folder.parent_folder_creation.name}"
-  #parent = "${element(google_folder.parent_folder_creation.name, 0)}"
-  #parent = "${[element(google_folder.parent_folder_creation.*.id, count.index)}"
-  depends_on = ["google_folder.parent_folder_creation"]
-  
-  
-}
-
