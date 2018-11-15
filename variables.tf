@@ -1,4 +1,8 @@
-variable "parent_folder" {
+variable "parent_id" {
+ 
+}
+
+variable "parent_folder_name" {
  
 }
 
