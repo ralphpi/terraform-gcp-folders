@@ -25,6 +25,7 @@ resource "google_folder" "child_folder_creation" {
   parent = "${google_folder.parent_folder_creation.name}"
   #parent = "${element(google_folder.parent_folder_creation.name, 0)}"
   #parent = "${[element(google_folder.parent_folder_creation.*.id, count.index)}"
+  depends_on = ["google_folder.parent_folder_creation"]
   
   
 }
