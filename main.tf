@@ -14,10 +14,6 @@ resource "google_folder" "parent_folder_creation" {
 
 #Second Level AKA Child  
 
-data "google_active_folder" "new_active_parent2" {
-  display_name = "${element(var.parent_folder_name  , 0)}"
-  parent = "${var.parent_id}"  
-}
 
 
 # Destroy Limitations: You must Destroy in order from right to left of childlist Array
