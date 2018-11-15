@@ -14,10 +14,6 @@ variable "childlist" {
 
 }
 
-variable "create_new_parent" {
-  
-}
-
 
 
 
