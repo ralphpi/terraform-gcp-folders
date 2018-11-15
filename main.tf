@@ -1,4 +1,11 @@
 # Top-level folder under an organization.
+
+data "google_active_folder" "new_active_parent" {
+  display_name = "${element(var.folder_name, 0)}"
+  parent = "folders/${var.parent_folder}"
+   
+}
+
 resource "google_folder" "parent_folder_creation" {
   count = "${length(var.folder_name)}"
   display_name = "${element(var.folder_name, count.index)}"
@@ -8,12 +15,7 @@ resource "google_folder" "parent_folder_creation" {
 
 #Second Level AKA Child  
 
-data "google_active_folder" "new_active_parent" {
-  display_name = "${element(var.folder_name, 0)}"
-  parent = "folders/${var.parent_folder}"
-  
-  
-}
+
 
 # Destroy Limitations: You must Destroy in order from right to left of childlist Array
 resource "google_folder" "child_folder_creation" {
